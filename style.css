@@ -1,0 +1,364 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding: 7px;
+    /* background-color: rgb(240,245,248); */
+    /* background-color: #f2f2f2; */
+    background-color: #e5e5e5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+/* this is for the navigation part */
+
+#men{
+font-size: 2rem;
+}
+#nav_toggle {
+display: none;
+}
+
+.navigation_button {
+height: 2rem;
+width: 2rem;
+position: fixed;
+top: 0.5rem;
+right: 1rem;
+border-radius: 50%;
+z-index: 1300;
+background-color: white;
+/* box-shadow: 12px 10px 15px rgb(192, 183, 183), -10px -10px 11px #ffffff73; */
+/* color: #000; */
+/* align-items: baseline; */
+text-align: center;
+}
+
+
+.navigation_background {
+height: 1rem;
+width: 1rem;
+border-radius: 50%;
+position: fixed;
+top: 1rem;
+right: 1.5rem;
+/* background-image: radial-gradient(red, blue); */
+background-color: #e5e5e5;
+z-index: 1000;
+/* transform: scale(50); */
+transition: transform .1s;
+}
+
+.navigation_nav {
+height: 100vh;
+width: 0%;
+position: fixed;
+top: 0;
+right: 0;
+z-index: 1200;
+/* opacity: 0; */
+/* transition: all 0s; */
+display: none;
+
+
+}
+
+.navigation_list {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+list-style: none;
+text-align: center;
+/* width: 100%; */
+
+}
+
+.navigation_item {
+margin: 3rem;
+}
+
+.navigation_link {
+font-size: 3rem;
+font-weight: 300;
+padding: 1rem 2rem;
+text-decoration: none;
+text-transform: uppercase;
+color: black;
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+background-size: 200%;
+}
+
+
+/* .navigation_item:visited{
+margin: 1rem;
+} */
+.navigation_link {
+display: inline-block;
+font-size: 3rem;
+font-weight: 300;
+padding: 1rem 2rem;
+text-decoration: none;
+text-transform: uppercase;
+color: black;
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+background-size: 230%;
+transition: all 0.4s;
+}
+
+.navigation_link:hover {
+background-position: 100%;
+color: green;
+transform: translate(1rem);
+border-radius: 10px;
+}
+
+.navigation_link:active {
+background-position: 100%;
+color: green;
+transform: translate(1rem);
+}
+
+
+
+#nav_toggle:checked~.navigation_background {
+transform: scale(250);
+}
+
+#nav_toggle:checked~.navigation_nav {
+opacity: 1;
+width: 100%;
+display: block;
+
+
+}
+
+.navigation_nav_container{
+/* border: 2px solid blue; */
+margin-top: 50px;
+background-color:#e5e5e5 ;
+width: 120px;
+margin-left: 227px;
+}
+.menu_icons{
+/* border: 2px solid green; */
+text-align: center;
+height: 40px;
+background-color: white;
+margin-top: 15px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.navigation_nav_container a{
+text-decoration: none;
+color: black;
+}
+
+
+
+/* this is for the dashboardpage  */
+
+
+.dashboard{
+ /* border: 2px solid red; */
+ height: 27vh;
+ background-color: white;
+}
+.dashboard_container{
+    /* border: 2px solid blue; */
+    margin-top: 37px;
+    height:24vh ;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+.budget_box{
+    /* border: 2px solid greenyellow; */
+    background-color: rgb(240,245,248);
+    /* background-color: black; */
+}
+.budget_box h4{
+    color: green;
+}
+.budget_box h5{
+    color: black;
+}
+.income_box{
+    /* border: 2px solid green; */
+    background-color: rgb(0,128,128);
+}
+.expense_box{
+    /* border: 2px solid red; */
+    background-color: red;
+}
+.boxes{
+    color: white;
+    height: 97px;
+    width: 85px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+.boxes h4{
+  margin-top: 20px;
+}
+
+
+
+/* this is for the transaction section */
+.transaction_list{
+    /* border: 2px solid red; */
+    margin-top: 10px;
+    height: 48vh;
+}
+.transaction_list_heading{
+    /* border: 2px solid blue; */
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+}
+.transaction_list_container{
+    border: 2px solid green;
+}
+
+.lists{
+ /* border: 2px solid gold; */
+ /* height: 35px; */
+ /* vertical-align: middle; */
+ /* display: flex;
+ justify-content: center;
+ align-items: center; */
+ margin: 5px;
+ padding: 5px;
+ border-radius: 10px;
+ background-color: white;
+}
+#one{
+    /* border: 2px solid blue; */
+    display: inline-block;
+    vertical-align: middle;
+    width: 9%;
+    
+}
+#uparrow{
+    font-size: 1.7rem;
+    color: green;
+}
+#two{
+    /* border: 2px solid blue; */
+    width: 44%;
+    display: inline-block;
+    vertical-align: middle;
+    /* text-overflow: ellipsis; */
+}
+#two p{
+    margin-left: 10px;
+}
+#three{
+    /* border: 2px solid blue; */
+    width: 34%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+#four{
+    /* border: 2px solid blue; */
+    width: 9%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+/* this is for the income page */
+/* .income{
+    height: 40px;
+    border: 2px solid red;
+} */
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e5e5e5;
+    font-family: 'Poppins', sans-serif;
+}
+.income{
+ height: 100vh;
+ border: 2px solid red;
+}
+
+.transaction_list{
+/* border: 2px solid red; */
+margin-top: 10px;
+height: 48vh;
+}
+.transaction_list_heading{
+/* border: 2px solid blue; */
+font-size: 1.5rem;
+font-family: 'Poppins', sans-serif;
+margin-left: 10px;
+}
+.transaction_list_container{
+/* border: 2px solid green; */
+}
+
+.lists{
+/* border: 2px solid gold; */
+/* height: 35px; */
+/* vertical-align: middle; */
+/* display: flex;
+justify-content: center;
+align-items: center; */
+margin: 5px;
+padding: 5px;
+border-radius: 10px;
+background-color: white;
+}
+#one{
+/* border: 2px solid blue; */
+display: inline-block;
+vertical-align: middle;
+width: 9%;
+
+}
+#uparrow{
+font-size: 1.7rem;
+color: green;
+}
+#two{
+/* border: 2px solid blue; */
+width: 44%;
+display: inline-block;
+vertical-align: middle;
+/* text-overflow: ellipsis; */
+}
+#two p{
+margin-left: 10px;
+}
+#three{
+/* border: 2px solid blue; */
+width: 34%;
+display: inline-block;
+vertical-align: middle;
+text-align: center;
+}
+#four{
+/* border: 2px solid blue; */
+width: 9%;
+display: inline-block;
+vertical-align: middle;
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+    #men{
+font-size: 2rem;
+}
+#nav_toggle {
+display: none;
+}
+
+.navigation_button {
+height: 2rem;
+width: 2rem;
+position: fixed;
+top: 0.5rem;
+right: 1rem;
+border-radius: 50%;
+z-index: 1300;
+background-color: white;
+/* box-shadow: 12px 10px 15px rgb(192, 183, 183), -10px -10px 11px #ffffff73; */
+/* color: #000; */
+/* align-items: baseline; */
+text-align: center;
+}
+
+
+.navigation_background {
+height: 1rem;
+width: 1rem;
+border-radius: 50%;
+position: fixed;
+top: 1rem;
+right: 1.5rem;
+/* background-image: radial-gradient(red, blue); */
+background-color: #e5e5e5;
+z-index: 1000;
+/* transform: scale(50); */
+transition: transform .1s;
+}
+
+.navigation_nav {
+height: 100vh;
+width: 0%;
+position: fixed;
+top: 0;
+right: 0;
+z-index: 1200;
+/* opacity: 0; */
+/* transition: all 0s; */
+display: none;
+
+
+}
+
+.navigation_list {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+list-style: none;
+text-align: center;
+/* width: 100%; */
+
+}
+
+.navigation_item {
+margin: 3rem;
+}
+
+.navigation_link {
+font-size: 3rem;
+font-weight: 300;
+padding: 1rem 2rem;
+text-decoration: none;
+text-transform: uppercase;
+color: black;
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+background-size: 200%;
+}
+
+
+/* .navigation_item:visited{
+margin: 1rem;
+} */
+.navigation_link {
+display: inline-block;
+font-size: 3rem;
+font-weight: 300;
+padding: 1rem 2rem;
+text-decoration: none;
+text-transform: uppercase;
+color: black;
+background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+background-size: 230%;
+transition: all 0.4s;
+}
+
+.navigation_link:hover {
+background-position: 100%;
+color: green;
+transform: translate(1rem);
+border-radius: 10px;
+}
+
+.navigation_link:active {
+background-position: 100%;
+color: green;
+transform: translate(1rem);
+}
+
+
+
+#nav_toggle:checked~.navigation_background {
+transform: scale(250);
+}
+
+#nav_toggle:checked~.navigation_nav {
+opacity: 1;
+width: 100%;
+display: block;
+
+
+}
+
+.navigation_nav_container{
+/* border: 2px solid blue; */
+margin-top: 50px;
+background-color:#e5e5e5 ;
+width: 120px;
+margin-left: 227px;
+}
+.menu_icons{
+/* border: 2px solid green; */
+text-align: center;
+height: 40px;
+background-color: white;
+margin-top: 15px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+.navigation_nav_container a{
+text-decoration: none;
+color: black;
+}
+
+
+
+        /* *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        } */
+        /* .add{
+        border: 2px solid red;
+        }
+        .add__container{
+            border: 2px solid blue;
+        }
+        .add__type{
+            display: block;
+        }
+        .add__description{
+            border: 2px solid green;
+            display: block;
+        }
+        .add__value{
+        display: block;
+        }
+        .add__btn{
+            border: 3px solid greenyellow;
+        } */
+
+
+
+.add {
+    height: 92vh;
+    padding: 14px;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.add__container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.add__type {
+    width: 55px;
+    border: 1px solid #e7e7e7;
+    height: 44px;
+    font-size: 18px;
+    color: inherit;
+    background-color: #fff;
+    margin-right: 10px;
+    font-weight: 300;
+    transition: border 0.3s;
+}
+
+.add__description,
+.add__value {
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.add__description { width: 50%;
+margin-top: 10px;
+text-align: center;}
+
+.add__value { width: 90%;
+margin-top: 10px;
+text-align: center;}
+
+.add__btn {
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: #28B9B5;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    /* margin-left: 10px; */
+    margin-top: 71px;
+}
+
+.add__btn:active { transform: translateY(2px); }
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus {
+    outline: none;
+    border: 1px solid #28B9B5;
+}
+
+.add__btn:focus { outline: none; }
+    </style>
+
+<div class="navigation">
+    <input type="checkbox" name="navigation_checkbox" id="nav_toggle">
+    <label for="nav_toggle" class="navigation_button">
+        <ion-icon name="menu-outline" id="men"></ion-icon>
+    </label>
+    <div class="navigation_background">&nbsp;</div>
+    <nav class="navigation_nav">
+
+        <div class="navigation_nav_container">
+            <div class="icon-1 menu_icons"><a href="../index.html">Dashboard</a></div>
+            <div class="icon-2 menu_icons"><a href="./view/add_transaction.html">Add Transactions</a> </div>
+            <div class="icon-3 menu_icons"><a href="./view/income.html">Incomes</a> </div>
+            <div class="icon-4 menu_icons"><a href="./view/expense.html">Expenses</a> </div>
+            <div class="icon-5 menu_icons"><a href="">Graph</a> </div>
+        </div>
+        <!-- <ul class="navigation_list">
+            <li class="navigation_item"><a href="https://www.facebook.com " target="_blank"
+                    class="navigation_link">dashboard</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">Add Transaction</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">Incomes</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">take a Expenses</a></li>
+
+        </ul> -->
+</div>
+
+
+
+
+     <div class="add">
+        <div class="add__container">
+            <select class="add__type">
+                <option value="inc" selected>+</option>
+                <option value="exp">-</option>
+            </select>
+            <input type="text" class="add__description" placeholder="Add description">
+            <input type="number" class="add__value" placeholder="Value">
+            <button class="add__btn">
+                <!-- <i class="ion-ios-checkmark-outline"></i> -->
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                addd here
+            </button>
+        </div>
+    </div>
+    <script src="../style copy.js"></script>
+    <!-- <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script> -->
+</body>
+</html>
