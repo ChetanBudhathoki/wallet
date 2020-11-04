@@ -167,3 +167,83 @@ var appController=(function(budgetCtrl , uiCtrl){
 
 
 
+
+
+ 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e5e5e5;
+    font-family: 'Poppins', sans-serif;
+}
+.income{
+ height: 100vh;
+ border: 2px solid red;
+}
+
+.transaction_list{
+/* border: 2px solid red; */
+margin-top: 10px;
+height: 48vh;
+}
+.transaction_list_heading{
+/* border: 2px solid blue; */
+font-size: 1.5rem;
+font-family: 'Poppins', sans-serif;
+margin-left: 10px;
+}
+.transaction_list_container{
+/* border: 2px solid green; */
+}
+
+/* .lists{
+border: 2px solid gold;
+height: 35px;
+vertical-align: middle;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 5px;
+padding: 5px;
+border-radius: 10px;
+background-color: white;
+} */
+#one{
+/* border: 2px solid blue; */
+display: inline-block;
+vertical-align: middle;
+width: 9%;
+
+}
+#uparrow{
+font-size: 1.7rem;
+color: green;
+}
+#two{
+/* border: 2px solid blue; */
+width: 44%;
+display: inline-block;
+vertical-align: middle;
+/* text-overflow: ellipsis; */
+}
+#two p{
+margin-left: 10px;
+}
+#three{
+/* border: 2px solid blue; */
+width: 34%;
+display: inline-block;
+vertical-align: middle;
+text-align: center;
+}
+#four{
+/* border: 2px solid blue; */
+width: 9%;
+display: inline-block;
+vertical-align: middle;
+}
+
+

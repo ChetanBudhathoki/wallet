@@ -1,3 +1,9 @@
+
+
+
+
+
+
 var budgetController=(function(){
 
 var Income= function(id , description ,value){
@@ -37,6 +43,7 @@ return{
             var newItem=new expense(id , description ,value);
         }
         data[type].push(newItem);
+        localStorage.setItem('newitems',JSON.stringify(data));
         return newItem;
 
     },
@@ -49,6 +56,8 @@ return{
 
             var storedarray=JSON.parse( localStorage.getItem('newitems'));
             console.log(storedarray);
+
+            // if(localStorage.getItem)
         
     }
 };
@@ -84,34 +93,60 @@ var uiController= (function(){
            };
 
        },
-       addListItem:function(){
-        window.location.href = 'http://127.0.0.1:5500/index.html';
+       addListItem:function(e){
+           
+        // window.location.href = 'http://127.0.0.1:5500/wallet/index.html';
+        //    document.addEventListener('DOMContentLoaded',function(){
+            
+        //     uiController.addListItem();
+            
+        //    });
+           
+
            var html, element;
+           
            var storedarray=JSON.parse( localStorage.getItem('newitems'));
            var inc_array=storedarray.inc;
            var exp_array=storedarray.exp;
            console.log(storedarray.inc[0].value);
 
-           element= domstrings.container;
-           html='  <div class="transaction_list-1 lists" id="lists-%storedarray.inc[0].id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%storedarray.inc[0].description%</p></span><span id="three">%storedarray.inc[0].value%</span><span id="four">21%</span></div>'
+           inc_array.forEach(function(){
+           var incomediv=document.createElement("div");
+           incomediv.classList.add('lists');
+           incomediv.innerText=storedarray.inc[0].description;
+           var test= document.querySelector('.transaction_list_container');
+           test.appendChild(incomediv);
+           var one=document.createElement('span');
+           one.classList.add('one');
+           one.innerText='one';
+           incomediv.appendChild(one);
+           }); 
+               
+        //    e.preventDefault();
         
-        //    if(type==='inc'){
-        //        element= domstrings.container;
-        //        html='  <div class="transaction_list-1 lists" id="lists-%id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%description%</p></span><span id="three">%value%</span><span id="four">21%</span></div>'
-        //    }
-           
-        //    else if(type==='exp'){
-        //        element= domstrings.container;
-        //        html='  <div class="transaction_list-1 lists" id="lists-%id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%description%</p></span><span id="three">%value%</span><span id="four">21%</span></div>'
-        //    }
-        //    console.log(typeof obj);
-        //    var newhtml=html.replace('%id%' , obj.id);
-        //    newhtml=newhtml.replace('%description%' , obj.description);
-        //    newhtml=newhtml.replace('%value%' , obj.value);
-        //    console.log(newhtml);
-        //    console.log(obj);
+            // element= domstrings.container;
+            //    html='  <div class="transaction_list-1 lists" id="lists-%storedarray.inc[0].id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%storedarray.inc[0].description%</p></span><span id="three">%storedarray.inc[0].value%</span><span id="four">21%</span></div>'
+            
+            //    if(type==='inc'){
+            //        element= domstrings.container;
+            //        html='  <div class="transaction_list-1 lists" id="lists-%id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%description%</p></span><span id="three">%value%</span><span id="four">21%</span></div>'
+            //    }
+               
+            //    else if(type==='exp'){
+            //        element= domstrings.container;
+            //        html='  <div class="transaction_list-1 lists" id="lists-%id%"><span id="one"><ion-icon name="chevron-up-outline" id="uparrow"></ion-icon></span><span id="two"><p>%description%</p></span><span id="three">%value%</span><span id="four">21%</span></div>'
+            //    }
+            //    console.log(typeof obj);
+            //    var newhtml=html.replace('%id%' , obj.id);
+            //    newhtml=newhtml.replace('%description%' , obj.description);
+            //    newhtml=newhtml.replace('%value%' , obj.value);
+            //    console.log(newhtml);
+            //    console.log(obj);
+    
+            //    document.querySelector(element).insertAdjacentElement('beforeend', html);
+        
 
-           document.querySelector(element).insertAdjacentElement('beforeend', html);
+          
 
        },
        getdomstrings:function(){
@@ -127,7 +162,7 @@ var uiController= (function(){
 var appController=(function(budgetCtrl , uiCtrl){
     var addItem,inputs,dom;
     dom =uiCtrl.getdomstrings();
- //    console.log(dom);
+    // console.log(dom);
     var eventListeners=function(){
      document.querySelector(dom.inputbtn).addEventListener('click' , addItem);       
      document.addEventListener('keypress', function(event){
@@ -139,7 +174,7 @@ var appController=(function(budgetCtrl , uiCtrl){
      };
  
      addItem= function(){
-     console.log('application has started');
+     console.log('application has starte');
      inputs=uiCtrl.getinput();
 
      console.log(inputs);
@@ -150,6 +185,9 @@ var appController=(function(budgetCtrl , uiCtrl){
    //push them into data structure
      uiController.addListItem(newItem , inputs.type);
    //add item to the ui
+   
+   budgetController.testing(appController.chintit.type);
+   uiController.addListItem();
    //calculation of the values
    //show the budget in ui
      };
@@ -173,6 +211,6 @@ var appController=(function(budgetCtrl , uiCtrl){
 
 
 
-
+ 
 
 
