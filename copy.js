@@ -50,9 +50,16 @@ var budgetController = (function () {
             else if (type === "exp") {
                 var newItem = new expense(id, description, value);
             }
-            data[type].push(newItem);
-            data.alltransaction.push(alltrans);
-            localStorage.setItem('newitems', JSON.stringify(data));
+            // data[type].push(newItem);
+            // data.alltransaction.push(alltrans);
+            // var getitems=[];
+            getitems=JSON.parse(localStorage.getItem('newitems'));
+            // console.log(getitems);
+            getitems.alltransaction.push(alltrans);
+            getitems[type].push(newItem);
+            
+            localStorage.setItem('newitems', JSON.stringify(getitems));
+            
             
             // console.log(test);
             return newItem;
@@ -115,7 +122,6 @@ var appController = (function (budgetCtrl, uiCtrl) {
         //push them into data structure
         
         //add item to the ui
-
         //calculation of the values
         //show the budget in ui
     };

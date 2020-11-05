@@ -162,7 +162,10 @@
             document.querySelector('.ram').innerText=income;
             document.querySelector('.laxman').innerText=`- ${expense}`;
             document.querySelector('.kalyan').innerText=`${percentage} %`;
-            return income;
+            return {
+                income:income,
+                totalbudget:totalbudget
+            };
         }
 
 
@@ -173,14 +176,15 @@
             var inc_array = storedarray.inc;
             var exp_array = storedarray.exp;
             var alltransaction=storedarray.alltransaction;
-
-            
+ 
             // for(let key in alltransaction.newitem){
             //     console.log(key);
             // }
             
             function tester(element) {
+                var percentage;
                 var income=getcurrentbudget();
+                income.totalbudget<0?percentage=0:percentage=Math.round((element.value/income)*100);
                 var html;
 
                 // element= '.transaction_list_container';
@@ -189,8 +193,9 @@
                     html = '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>'
                 }
                 else if(element.type==="exp"){
-                   var percentage=(element.value/income)*100;
-                   percentage=percentage.toPrecision(1);
+                    // percentage=Math.round((element.value/income)*100);
+                //    percentage=percentage.toPrecision(2);
+                
                     html = '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-down-outline" class="downarrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">-%value% </span><span class="four">%hellow%</span></div>'
                 }
                 
