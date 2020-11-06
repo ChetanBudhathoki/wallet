@@ -50,18 +50,30 @@ var budgetController = (function () {
             else if (type === "exp") {
                 var newItem = new expense(id, description, value);
             }
+            
             data[type].push(newItem);
-            // data.alltransaction.push(alltrans);
-            // var getitems=[];
-            getitems=JSON.parse(localStorage.getItem('newitems'));
+            data.alltransaction.push(alltrans); 
+            var getitems=[]; 
+            if(localStorage.getItem('newitems')){
+                getitems=JSON.parse(localStorage.getItem('newitems'));
+                getitems.alltransaction.push(alltrans); 
+                getitems[type].push(newItem);
+                localStorage.setItem('newitems', JSON.stringify(getitems));
+            } 
+            
             // console.log(getitems);
-            getitems.alltransaction.push(alltrans);
-            getitems[type].push(newItem);
             
-            localStorage.setItem('newitems', JSON.stringify(getitems));
+        //    if(localStorage.getItem('newitems')){
+            
+        //    } thik xani?
+           else{
+            localStorage.setItem('newitems', JSON.stringify(data)); 
+           }
+            
+             
             
             
-            // console.log(test);
+            // console.log(test); 
             return newItem;
 
         }

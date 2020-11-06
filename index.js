@@ -1,6 +1,10 @@
 // document.addEventListener('DOMContentLoaded', tester);
 
-document.addEventListener("DOMContentLoaded", getcurrentbudget);
+document.addEventListener("DOMContentLoaded", function(){
+  if (localStorage.getItem("newitems")) {
+     getcurrentbudget();
+  }
+});
 function getcurrentbudget() {
   console.log("hellow world");
 
@@ -9,6 +13,7 @@ function getcurrentbudget() {
   var income = 0;
   var expense = 0;
   var percentage = 0;
+   
   var delocalstorage = JSON.parse(localStorage.getItem("newitems"));
   var totaltrans = delocalstorage.alltransaction;
   totaltrans.forEach((element) => {
@@ -79,15 +84,15 @@ if (localStorage.getItem("newitems")) {
      
   };
 
-  // alltransaction.forEach((element) => {
-  //   tester(element);
-  //   console.log(element);
-  // });
-  
-  for(var i=alltransaction.length-1;i>alltransaction.length-7;i--){
-    tester(alltransaction[i]);
+  alltransaction.forEach((element) => {
+    tester(element);
+    console.log(element);
+  });
+  // if(alltransaction.length>0){
+  // for(var i=alltransaction.length-1;i>alltransaction.length-7;i--){
+  //   tester(alltransaction[i]);
 
-  }
+  // }}
 
 
   // for(var i=0;i<alltransaction.length;i++){
