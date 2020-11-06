@@ -1,16 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:ital,wght@1,400;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Raleway:ital,wght@1,400;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
+
 <body>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            background-color: #e5e5e5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .income {
+            height: 100vh;
+            /* border: 2px solid red; */
+        }
+
+        .transaction_list {
+            /* border: 2px solid red; */
+            margin-top: 10px;
+            height: 48vh;
+        }
+
+        .transaction_list_heading {
+            /* border: 2px solid blue; */
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            margin-left: 10px;
+        }
+
+        .transaction_list_container {
+            /* border: 2px solid green; */
+        }
+
+        /* .lists{
+border: 2px solid gold;
+height: 35px;
+vertical-align: middle;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 5px;
+padding: 5px;
+border-radius: 10px;
+background-color: white;
+} */
+        #one {
+            /* border: 2px solid blue; */
+            display: inline-block;
+            vertical-align: middle;
+            width: 9%;
+
+        }
+
+        #uparrow {
+            font-size: 1.7rem;
+            color: green;
+        }
+
+        #two {
+            /* border: 2px solid blue; */
+            width: 44%;
+            display: inline-block;
+            vertical-align: middle;
+            /* text-overflow: ellipsis; */
+        }
+
+        #two p {
+            margin-left: 10px;
+        }
+
+        #three {
+            /* border: 2px solid blue; */
+            width: 34%;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #four {
+            /* border: 2px solid blue; */
+            width: 9%;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
+
+    <div class="navigation">
+        <input type="checkbox" name="navigation_checkbox" id="nav_toggle">
+        <label for="nav_toggle" class="navigation_button">
+            <ion-icon name="menu-outline" id="men"></ion-icon>
+        </label>
+        <div class="navigation_background">&nbsp;</div>
+        <nav class="navigation_nav">
+
+            <div class="navigation_nav_container">
+                <div class="icon-1 menu_icons"><a href="../index.html">Dashboard</a></div>
+                <div class="icon-2 menu_icons"><a href="./view/add_transaction.html">Add Transactions</a> </div>
+                <div class="icon-3 menu_icons"><a href="./view/income.html">Incomes</a> </div>
+                <div class="icon-4 menu_icons"><a href="./view/expense.html">Expenses</a> </div>
+                <div class="icon-5 menu_icons"><a href="">Graph</a> </div>
+            </div>
+            <!-- <ul class="navigation_list">
+            <li class="navigation_item"><a href="https://www.facebook.com " target="_blank"
+                    class="navigation_link">dashboard</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">Add Transaction</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">Incomes</a></li>
+            <li class="navigation_item"><a href="#" class="navigation_link">take a Expenses</a></li>
+
+        </ul> -->
+    </div>
+
+
+
+
+
+
     <section class="income">
         <div class="income_container">
             <section class="transaction_list">
@@ -18,61 +135,132 @@
                     INCOMES
                 </div>
                 <div class="transaction_list_container">
-                <div class="transaction_list-1 lists">
-                    <span id="one">
-                        <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
-                    </span>
-                    <span id="two"><p>Salary Paid</p></span>
-                    <span id="three">98338737 </span>
-                    <span id="four">21%</span>
-        
-                    
-                    
-                    <!-- <div class="tra-1 transactions">one</div>
+                    <div class="transaction_list-1 lists">
+                        <span id="one">
+                            <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
+                        </span>
+                        <span id="two">
+                            <p>Salary Paid</p>
+                        </span>
+                        <span id="three">98338737 </span>
+                        <span id="four">21%</span>
+
+
+
+                        <!-- <div class="tra-1 transactions">one</div>
                     <div class="tra-2 transactions">
                         salary added  to facebook how do you like it
                      </div>
                     <div class="tra-3 transactions">903948484</div>
                     <div class="tra-4 transactions">21%</div> -->
-                </div>
-                <div class="transaction_list-2 lists">
-                    <span id="one">
-                        <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
-                    </span>
-                    <span id="two"><p>Interest</p></span>
-                    <span id="three">758654</span>
-                    <span id="four">78%</span>
-                </div>
-                <div class="transaction_list-3 lists">
-                    <span id="one">
-                        <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
-                    </span>
-                    <span id="two"><p>Car Sold</p></span>
-                    <span id="three">864654</span>
-                    <span id="four">45%</span>
-                </div>
-                <div class="transaction_list-4 lists">
-                    <span id="one">
-                        <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
-                    </span>
-                    <span id="two"><p>Fooding</p></span>
-                    <span id="three">245644</span>
-                    <span id="four">67%</span>
-                </div>
-                <div class="transaction_list-5 lists">
-                    <span id="one">
-                        <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
-                    </span>
-                    <span id="two"><p>Clothing</p></span>
-                    <span id="three">9865478</span>
-                    <span id="four">31%</span>
-                </div>
-               
+                    </div>
+                    <div class="transaction_list-2 lists">
+                        <span id="one">
+                            <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
+                        </span>
+                        <span id="two">
+                            <p>Interest</p>
+                        </span>
+                        <span id="three">758654</span>
+                        <span id="four">78%</span>
+                    </div>
+                    <div class="transaction_list-3 lists">
+                        <span id="one">
+                            <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
+                        </span>
+                        <span id="two">
+                            <p>Car Sold</p>
+                        </span>
+                        <span id="three">864654</span>
+                        <span id="four">45%</span>
+                    </div>
+                    <div class="transaction_list-4 lists">
+                        <span id="one">
+                            <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
+                        </span>
+                        <span id="two">
+                            <p>Fooding</p>
+                        </span>
+                        <span id="three">245644</span>
+                        <span id="four">67%</span>
+                    </div>
+                    <div class="transaction_list-5 lists">
+                        <span id="one">
+                            <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
+                        </span>
+                        <span id="two">
+                            <p>Clothing</p>
+                        </span>
+                        <span id="three">9865478</span>
+                        <span id="four">31%</span>
+                    </div>
+
             </section>
         </div>
     </section>
-    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("newitems")) {
+                console.log("ghantako ready");
+                // uiController.addListItem(e);
+                var storedarray = JSON.parse(localStorage.getItem("newitems"));
+                var inc_array = storedarray.inc;
+                var exp_array = storedarray.exp;
+                var alltransaction = storedarray.alltransaction;
+
+                // for(let key in alltransaction.newitem){
+                //     console.log(key);
+                // }
+
+                inc_array.forEach(element => {
+                    var percentage;
+                    // var income = getcurrentbudget();
+                    // income.totalbudget < 0
+                    //   ? (percentage = 0)
+                    //   : (percentage = Math.round((element.value / income) * 100));
+                    var html;
+
+                    // element= '.transaction_list_container';
+                    // if (element.type === "inc") {
+                    html =
+                        '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
+                    // }
+                    //  else if (element.type === "exp") {
+                    //   // percentage=Math.round((element.value/income)*100);
+                    //   //    percentage=percentage.toPrecision(2);
+
+                    //   html =
+                    //     '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-down-outline" class="downarrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">-%value% </span><span class="four">%hellow%</span></div>';
+                    // }
+
+                    var storedarray = JSON.parse(localStorage.getItem("newitems"));
+
+                    var newhtmlobject = html.replace("%id%", element.id);
+                    newhtmlobject = newhtmlobject.replace("%description%", element.description);
+                    newhtmlobject = newhtmlobject.replace("%value%", element.value);
+                    newhtmlobject = newhtmlobject.replace("%hellow%", `${percentage} %`);
+
+                    document
+                        .querySelector(".transaction_list_container")
+                        .insertAdjacentHTML("beforeend", newhtmlobject);
+
+
+                });
+            }
+        });
+
+
+//   alltransaction.forEach((element) => {
+//     tester(element);
+//   });
+
+
+
+    </script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>
+
 </html>

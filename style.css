@@ -165,18 +165,18 @@ color: black;
 
 .dashboard{
  /* border: 2px solid red; */
- height: 27vh;
+ height: 30vh;
  background-color: white;
 }
 .dashboard_container{
     /* border: 2px solid blue; */
     margin-top: 37px;
-    height:24vh ;
+    height:30vh ;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    /* align-items: center; */
+    align-items: center;
 }
 .budget_box{
     /* border: 2px solid greenyellow; */
@@ -200,7 +200,7 @@ color: black;
 .boxes{
     color: white;
     height: 97px;
-    width: 85px;
+    width: 91px;
     border-radius: 10px;
     margin: 10px;
     text-align: center;
@@ -210,7 +210,10 @@ color: black;
     flex-direction: column; */
 }
 .boxes h4{
-  margin-top: 20px;
+  margin-top: 10px;
+}
+.boxes h5{
+    margin-top: 5px;
 }
 
 
@@ -228,11 +231,11 @@ color: black;
     margin-left: 10px;
 }
 .transaction_list_container{
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .lists{
- border: 2px solid gold;
+ /* border: 2px solid gold; */
  /* height: 35px; */
  /* vertical-align: middle; */
  /* display: flex;

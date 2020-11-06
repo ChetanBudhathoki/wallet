@@ -50,7 +50,7 @@ var budgetController = (function () {
             else if (type === "exp") {
                 var newItem = new expense(id, description, value);
             }
-            // data[type].push(newItem);
+            data[type].push(newItem);
             // data.alltransaction.push(alltrans);
             // var getitems=[];
             getitems=JSON.parse(localStorage.getItem('newitems'));
@@ -94,6 +94,16 @@ var uiController = (function () {
             };
 
         },
+
+        clearfields:function(){
+            var fields, fieldsarr;
+        fields=document.querySelectorAll(domstrings.inputdescription + ","+ domstrings.inputvalue);
+        fieldsarr=Array.prototype.slice.call(fields);
+        fieldsarr.forEach(function(current){
+          current.value="";  
+        });
+        fieldsarr[0].focus();
+        },
         
         getdomstrings: function () {
             return domstrings;
@@ -113,10 +123,13 @@ var appController = (function (budgetCtrl, uiCtrl) {
     addItem = function () {
         console.log('application has starte');
         inputs = uiCtrl.getinput();
+        uiCtrl.clearfields();
 
         console.log(inputs);
-
-        var newItem = budgetCtrl.addItem(inputs.type, inputs.description, parseInt(inputs.value));
+        if(!isNaN(inputs.value) && inputs.description!=="" && inputs.value>0){
+            var newItem = budgetCtrl.addItem(inputs.type, inputs.description, parseInt(inputs.value));
+        }
+        
 
         //read the data from the input
         //push them into data structure
@@ -131,7 +144,7 @@ var appController = (function (budgetCtrl, uiCtrl) {
         document.querySelector(dom.inputbtn).addEventListener('click', addItem);
         document.addEventListener('keypress', function (event) {
             if (event.keyCode === 13 || event.which === 13) {
-                addItem();
+                addItem();    
             }
 
         });
