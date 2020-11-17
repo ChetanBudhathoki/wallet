@@ -35,23 +35,29 @@ var budgetController = (function () {
 
     return {
         addItem: function (type, description, value) {
+            var check=anothercopy();
+            console.log(check);
             var alltrans=new alltransactions(type, description, value);
-            if (data[type].length > 0) {
-                var id = data[type][data[type].length - 1].id + 1;
-            }
-            else {
-                id = 0;
-            }
+            // if(localStorage.getitems('newitems')){
+                if (check[type].length > 0) {
+                    var id = check[type][check[type].length - 1].id + 1;
+                }
+                else {
+                    id = 0;
+                }
+            
+           
 
             if (type === "inc") {
                 var newItem = new Income(id, description, value);
-
+                // data.totals.inc+=1;
             }
             else if (type === "exp") {
                 var newItem = new expense(id, description, value);
             }
             
             data[type].push(newItem);
+            console.log(data.totals);
             data.alltransaction.push(alltrans); 
             var getitems=[]; 
             if(localStorage.getItem('newitems')){
@@ -61,18 +67,23 @@ var budgetController = (function () {
                 localStorage.setItem('newitems', JSON.stringify(getitems));
             } 
             
-            // console.log(getitems);
-            
-        //    if(localStorage.getItem('newitems')){
-            
-        //    } thik xani?
            else{
             localStorage.setItem('newitems', JSON.stringify(data)); 
            }
-            
-             
-            
-            
+           
+           
+           function anothercopy(){
+            if(localStorage.getItem('newitems')){
+               var loadeddata=JSON.parse(localStorage.getItem('newitems'));
+               return loadeddata;
+           }
+           else{
+               return data;
+           }
+          
+           
+        }
+        
             // console.log(test); 
             return newItem;
 
