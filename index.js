@@ -84,15 +84,16 @@ if (localStorage.getItem("newitems")) {
      
   };
 
-  alltransaction.forEach((element) => {
-    tester(element);
-    console.log(element);
-  });
-  // if(alltransaction.length>0){
-  // for(var i=alltransaction.length-1;i>alltransaction.length-7;i--){
-  //   tester(alltransaction[i]);
+  // alltransaction.forEach((element) => {
+  //   tester(element);
+  //   console.log(element);
+  // });
 
-  // }}
+  if(alltransaction.length>0){
+  for(var i=alltransaction.length-1;i>alltransaction.length-7;i--){
+    tester(alltransaction[i]);
+
+  }};
 
 
   // for(var i=0;i<alltransaction.length;i++){

@@ -87,7 +87,20 @@ var budgetController = (function () {
             // console.log(test); 
             return newItem;
 
+        },
+        testing:function(){
+            console.log(data);
         }
+        // ctrlDeleteitem:function(type, id){
+        //     var ids=data[type].map(function(current){
+        //         return current.id;
+        //     }); 
+        //     var index=ids.indexOf(id);
+            
+        //     if(index !==-1){
+        //         data[type].splice(index, 1);
+        //     }
+        // }
 
     };
 

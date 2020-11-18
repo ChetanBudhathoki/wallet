@@ -250,7 +250,7 @@ color: black;
     /* border: 2px solid blue; */
     display: inline-block;
     vertical-align: middle;
-    width: 9%;
+    width: 8%;
     
 }
 .uparrow{
@@ -281,9 +281,11 @@ color: black;
 }
 .four{
     /* border: 2px solid blue; */
-    width: 9%;
+    width: 12%;
     display: inline-block;
     vertical-align: middle;
+    text-align: center;
+    margin-left: 2px;
 }
 
 .spans{

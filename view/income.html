@@ -108,9 +108,9 @@ background-color: white;
 
             <div class="navigation_nav_container">
                 <div class="icon-1 menu_icons"><a href="../index.html">Dashboard</a></div>
-                <div class="icon-2 menu_icons"><a href="./view/add_transaction.html">Add Transactions</a> </div>
-                <div class="icon-3 menu_icons"><a href="./view/income.html">Incomes</a> </div>
-                <div class="icon-4 menu_icons"><a href="./view/expense.html">Expenses</a> </div>
+                <div class="icon-2 menu_icons"><a href="./add_transaction.html">Add Transactions</a> </div>
+                <div class="icon-3 menu_icons"><a href="./income.html">Incomes</a> </div>
+                <div class="icon-4 menu_icons"><a href="./expense.html">Expenses</a> </div>
                 <div class="icon-5 menu_icons"><a href="">Graph</a> </div>
             </div>
             <!-- <ul class="navigation_list">
@@ -135,7 +135,7 @@ background-color: white;
                     INCOMES
                 </div>
                 <div class="transaction_list_container">
-                    <div class="transaction_list-1 lists">
+                    <!-- <div class="transaction_list-1 lists">
                         <span id="one">
                             <ion-icon name="chevron-up-outline" id="uparrow"></ion-icon>
                         </span>
@@ -145,14 +145,6 @@ background-color: white;
                         <span id="three">98338737 </span>
                         <span id="four">21%</span>
 
-
-
-                        <!-- <div class="tra-1 transactions">one</div>
-                    <div class="tra-2 transactions">
-                        salary added  to facebook how do you like it
-                     </div>
-                    <div class="tra-3 transactions">903948484</div>
-                    <div class="tra-4 transactions">21%</div> -->
                     </div>
                     <div class="transaction_list-2 lists">
                         <span id="one">
@@ -193,7 +185,8 @@ background-color: white;
                         </span>
                         <span id="three">9865478</span>
                         <span id="four">31%</span>
-                    </div>
+                    </div> -->
+                </div>
 
             </section>
         </div>
@@ -225,7 +218,7 @@ background-color: white;
                     // element= '.transaction_list_container';
                     // if (element.type === "inc") {
                     html =
-                        '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
+                        '  <div class="transaction_list-1 lists" id="lists-%id%"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
                     // }
                     //  else if (element.type === "exp") {
                     //   // percentage=Math.round((element.value/income)*100);
@@ -249,13 +242,41 @@ background-color: white;
 
                 });
             }
-        });
+            
+            var ctrlDeleteitem=function(event){
+                var itemId, splitId, type, ID;
+           itemId=(event.target.id);
+           console.log(itemId);
+           if(itemId){
+             splitId=itemId.split('-');
+             type=splitId[0];
+             ID=parseInt(splitId[1]);
+
+             ctrlDeleteitem(type , ID);
+           }
+            }
+            function ctrlDeleteitem(){
+                var ids=data[type].map(function(current){
+                return current.id;
+            }); 
+            var index=ids.indexOf(id);
+            
+            if(index !==-1){
+                data[type].splice(index, 1);
+            }
+            };
+       document.querySelector('.transaction_list_container').addEventListener('click' , ctrlDeleteitem);
+
+        }
+        );
 
 
 //   alltransaction.forEach((element) => {
 //     tester(element);
 //   });
+       
 
+       
 
 
     </script>
