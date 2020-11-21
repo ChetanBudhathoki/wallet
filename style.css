@@ -219,6 +219,9 @@ color: black;
 
 
 /* this is for the transaction section */
+.check{
+    border: 2px solid red;
+}
 .transaction_list{
     /* border: 2px solid red; */
     margin-top: 10px;

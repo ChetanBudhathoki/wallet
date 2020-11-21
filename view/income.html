@@ -194,6 +194,38 @@ background-color: white;
 
 
     <script>
+          function deleteitem(){
+                var bibhutry=JSON.parse(localStorage.getItem("newitems"));
+                console.log(bibhutry);
+                var beta=bibhutry.inc;
+                console.log(beta);
+                var cheta=beta.filter(function(value){
+                    return value.id===2
+                })
+                console.log(cheta);
+                console.log(cheta[0].description);
+                beta.splice(3,1);
+                console.log(beta);
+                bibhutry.inc=beta;
+                console.log(bibhutry);
+                // localStorage.setItem()
+                var ceta=bibhutry.alltransaction;
+                console.log(ceta);
+               var gama= ceta.filter(function(value){
+                return value.type==="inc";
+                
+                });
+                console.log(gama);
+                gama.splice(3,1);
+                console.log(gama);
+                bibhutry.alltransaction=gama;
+                console.log(bibhutry);
+                
+                // ceta.forEach(function(expense){
+            
+                // })
+            
+            }
         document.addEventListener("DOMContentLoaded", function () {
             if (localStorage.getItem("newitems")) {
                 console.log("ghantako ready");
@@ -218,15 +250,9 @@ background-color: white;
                     // element= '.transaction_list_container';
                     // if (element.type === "inc") {
                     html =
-                        '  <div class="transaction_list-1 lists" id="lists-%id%"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
+                        '<div class="transaction_list-1 lists" id="inc-%id%"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three"><p>%value% </p></span><span class="four"><p></p></span></div>';
                     // }
-                    //  else if (element.type === "exp") {
-                    //   // percentage=Math.round((element.value/income)*100);
-                    //   //    percentage=percentage.toPrecision(2);
-
-                    //   html =
-                    //     '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-down-outline" class="downarrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">-%value% </span><span class="four">%hellow%</span></div>';
-                    // }
+                   
 
                     var storedarray = JSON.parse(localStorage.getItem("newitems"));
 
@@ -243,28 +269,76 @@ background-color: white;
                 });
             }
             
-            var ctrlDeleteitem=function(event){
-                var itemId, splitId, type, ID;
-           itemId=(event.target.id);
-           console.log(itemId);
-           if(itemId){
-             splitId=itemId.split('-');
-             type=splitId[0];
-             ID=parseInt(splitId[1]);
+        //     var ctrlDeleteitem=function(event){
+        //         var itemId,splitId,  type, ID;
+        //    itemId=(event.target.parentElement.parentNode).id;
+        //    itemId=itemId+'';
+        //    console.log(itemId);
+        //    console.log(typeof itemId);
+        //    function ctrlDlteitem(type , id){
+        //         var laxman=JSON.parse(localStorage.getItem("newitems"));
+        //         console.log(laxman);
+        //         var ids=laxman[type].map(function(current){
+        //         return current.id;
+        //     });
+        //     console.log(ids); 
+        //     var index=ids.indexOf(id);
+        //     console.log(index);
+        //     if(index !==-1){
+        //         laxman[type].splice(index, 1);
+        //     }
+        //     };
+        //    if(itemId){
+        //     splitId=itemId.split('-');
+        //     type=splitId[0];
+        //     ID=parseInt(splitId[1]);
+        //     console.log(type);
+        //     console.log(ID);
+        //      ctrlDlteitem(type , ID);
+        //     }
 
-             ctrlDeleteitem(type , ID);
-           }
+           
+
+        //     };
+
+        var ctrlDeleteitem=function(event){
+            function deleteitem(type, id){
+                  var getlocalstorage=JSON.parse(localStorage.getItem("newitems"));
+                  var incomes=getlocalstorage.inc;
+                  var alltrans=getlocalstorage.alltransaction;
+                  console.log(incomes);
+                  console.log(alltrans);
+                  var delincome=incomes.filter(function(value){
+                      return value.id!==id;
+                  });
+                  getlocalstorage.inc=delincome;
+                  console.log(delincome);
+                  var delalltrans=alltrans.filter(function(value){
+                      console.log((value.type));
+                      return (value.type!==type || value.id!==id);
+                  });
+                  console.log(delalltrans);
+                  getlocalstorage.alltransaction=delalltrans;
+                  console.log(getlocalstorage);
+                  localStorage.setItem("newitems",JSON.stringify(getlocalstorage));
+               }
+        var itemId=(event.target.parentElement.parentNode).id;
+            itemId=itemId+'';
+            if(itemId){
+                console.log(itemId);
+               var splitid=itemId.split("-");
+               console.log(splitid);
+               var type=splitid[0];
+               var id=parseInt(splitid[1]);
+               console.log(type);
+               console.log(id);
+
+              deleteitem(type, id);
+                
             }
-            function ctrlDeleteitem(){
-                var ids=data[type].map(function(current){
-                return current.id;
-            }); 
-            var index=ids.indexOf(id);
-            
-            if(index !==-1){
-                data[type].splice(index, 1);
-            }
-            };
+        }
+          
+           
        document.querySelector('.transaction_list_container').addEventListener('click' , ctrlDeleteitem);
 
         }
@@ -280,6 +354,7 @@ background-color: white;
 
 
     </script>
+    <script src="../copy.js"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </body>

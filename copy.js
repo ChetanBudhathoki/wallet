@@ -16,10 +16,11 @@ var budgetController = (function () {
         this.description = description;
         this.value = value;
     };
-    var alltransactions=function(type, description , value){
+    var alltransactions=function(type, description , value, id){
         this.type=type;
         this.description=description;
         this.value=value;
+        this.id=id;
     };
     
 
@@ -37,7 +38,7 @@ var budgetController = (function () {
         addItem: function (type, description, value) {
             var check=anothercopy();
             console.log(check);
-            var alltrans=new alltransactions(type, description, value);
+            // var alltrans=new alltransactions(type, description, value, id);
             // if(localStorage.getitems('newitems')){
                 if (check[type].length > 0) {
                     var id = check[type][check[type].length - 1].id + 1;
@@ -45,16 +46,20 @@ var budgetController = (function () {
                 else {
                     id = 0;
                 }
-            
+               
            
 
             if (type === "inc") {
                 var newItem = new Income(id, description, value);
+                var alltrans=new alltransactions(type, description, value, id);
                 // data.totals.inc+=1;
             }
             else if (type === "exp") {
                 var newItem = new expense(id, description, value);
+                var alltrans=new alltransactions(type, description, value, id);
             }
+           
+            
             
             data[type].push(newItem);
             console.log(data.totals);
@@ -166,7 +171,6 @@ var appController = (function (budgetCtrl, uiCtrl) {
             var newItem = budgetCtrl.addItem(inputs.type, inputs.description, parseInt(inputs.value));
         }
         
-
         //read the data from the input
         //push them into data structure
         

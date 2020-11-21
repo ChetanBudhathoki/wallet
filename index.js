@@ -61,7 +61,7 @@ if (localStorage.getItem("newitems")) {
     // element= '.transaction_list_container';
     if (element.type === "inc") {
       html =
-        '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
+        ' <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-up-outline" class="uparrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four"></span></div>';
     } else if (element.type === "exp") {
       // percentage=Math.round((element.value/income)*100);
       //    percentage=percentage.toPrecision(2);

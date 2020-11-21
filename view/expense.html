@@ -265,7 +265,7 @@
                     // element= '.transaction_list_container';
                     // if (element.type === "inc") {
                     html =
-                        '  <div class="transaction_list-1 lists" id="lists-0"><span class="one" id="one"><ion-icon name="chevron-down-outline" class="downarrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three">%value% </span><span class="four">%hellow%</span></div>';
+                        '  <div class="transaction_list-1 lists" id="exp-%id%"><span class="one" id="one"><ion-icon name="chevron-down-outline" class="downarrow"></ion-icon></span><span class="two"><p>%description%</p></span><span class="three"><p>%value%</p> </span><span class="four">%hellow%</span></div>';
                     // }
                     //  else if (element.type === "exp") {
                     //   // percentage=Math.round((element.value/income)*100);
@@ -296,6 +296,45 @@
         document.addEventListener("DOMContentLoaded", function () {
             getcurrentbudget();
             expensedisplay();
+            var ctrlDeleteitem=function(event){
+                function deleteitem(type, id){
+                var getlocalstorage=JSON.parse(localStorage.getItem("newitems"));
+                var expenses=getlocalstorage.exp;
+                var alltrans=getlocalstorage.alltransaction;
+                console.log(getlocalstorage);
+                console.log(expenses);
+                console.log(alltrans);
+                var delexpense=expenses.filter(function(value){
+                    // console.log(type);
+                      return value.id!=id;
+                  });
+                getlocalstorage.exp=delexpense;
+                console.log(delexpense);
+                console.log(getlocalstorage);
+                var delalltrans=alltrans.filter(function(value){
+                    // console.log(type);
+                    return value.type!=type || value.id!=id;
+                });
+                getlocalstorage.alltransaction=delalltrans;
+                console.log(delalltrans);
+                console.log(getlocalstorage);
+                localStorage.setItem("newitems",JSON.stringify(getlocalstorage));
+                }
+
+                var itemId=(event.target.parentElement.parentNode).id;
+                console.log(itemId);
+                itemId=itemId+'';
+                if(itemId){
+                    var splitid=itemId.split("-");
+                    console.log(splitid);
+                    var type=splitid[0];
+                    var id=splitid[1];
+                    console.log(type);
+                    console.log(id);
+                    deleteitem(type, id);
+                }
+            }
+            document.querySelector(".transaction_list_container").addEventListener("click", ctrlDeleteitem);
         });
 
     </script>
