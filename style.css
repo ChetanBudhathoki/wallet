@@ -249,6 +249,22 @@ color: black;
  border-radius: 10px;
  background-color: white;
 }
+.lists:hover{
+    background-color:#d1caca;
+    cursor: pointer;
+}
+/* .lists:active{
+    background-color: green;
+    transform: rotateZ(170deg);
+    display: none;
+    
+    transition:all  0.3s ease-out ;
+    opacity: 0;
+    
+} */
+
+
+
 .one{
     /* border: 2px solid blue; */
     display: inline-block;
